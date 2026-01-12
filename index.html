@@ -1,20 +1,259 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Migraine Diary</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MigraineDiary</title>
+  <meta name="description" content="A private migraine tracking app. No accounts, no ads, no analytics. Data stays on your device." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --text:#e8eefc;
+      --muted:#aab7d6;
+      --line:rgba(255,255,255,.10);
+      --accent:#7aa2ff;
+      --accent2:#7dffcf;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --r:18px;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(122,162,255,.35), transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(125,255,207,.18), transparent 55%),
+                  linear-gradient(180deg, var(--bg), #060a14 70%);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 56px;}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 0 24px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(122,162,255,.25);
+    }
+    .brand strong{font-size:18px; letter-spacing:.2px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line); background: rgba(255,255,255,.04);
+      color:var(--muted); text-decoration:none; font-size:14px;
+    }
+    .hero{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){ .hero{grid-template-columns:1fr;} }
+    .card{
+      background: rgba(17,26,46,.78);
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+    }
+    .heroMain{padding:26px;}
+    h1{
+      margin:0 0 10px;
+      font-size:40px; line-height:1.1;
+      letter-spacing:-.6px;
+    }
+    .subtitle{color:var(--muted); font-size:16px; margin:0 0 18px;}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0;}
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(125,255,207,.85));
+      color:#061021;
+      border:0;
+      box-shadow: 0 16px 30px rgba(122,162,255,.22);
+    }
+    .btn.ghost{background: rgba(255,255,255,.04); color:var(--text);}
+    .side{padding:18px;}
+    .side h3{margin:6px 0 10px; font-size:16px}
+    .kv{
+      display:grid; gap:10px;
+      margin-top:10px;
+    }
+    .kv div{
+      padding:12px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .kv b{display:block; font-size:13px; color:var(--muted); margin-bottom:2px;}
+    .section{margin-top:18px;}
+    .sectionTitle{
+      margin:22px 0 10px;
+      font-size:18px;
+      color: var(--text);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 860px){ .grid{grid-template-columns:1fr;} }
+    .feat{padding:14px;}
+    .feat h4{margin:0 0 6px; font-size:15px;}
+    .feat p{margin:0; color:var(--muted); font-size:14px;}
+    .legal{padding:18px;}
+    .legal p{color:var(--muted); margin:10px 0;}
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+    code.inline{
+      background: rgba(255,255,255,.06);
+      padding:2px 6px;
+      border-radius:8px;
+      border:1px solid var(--line);
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Migraine Diary</h1>
-  <p>Private migraine tracking app.</p>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true"></div>
+        <strong>MigraineDiary</strong>
+      </a>
 
-  <h2>Privacy Policy</h2>
-  <p>
-    Migraine Diary stores all data locally on your device.
-    No accounts, no ads, no analytics.
-  </p>
+      <!-- Optional: link to your Play Store listing (once it exists) -->
+      <a class="pill" href="#" target="_blank" rel="noopener">
+        Open testing
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
 
-  <h2>Contact</h2>
-  <p>Email:ynot4u2@gmail.com</p>
+    <div class="hero">
+      <div class="card heroMain">
+        <h1>Track migraines privately.</h1>
+        <p class="subtitle">
+          MigraineDiary helps you log your day in seconds — intensity, notes, and common factors —
+          while keeping your data on your device.
+        </p>
+
+        <div class="badges">
+          <span class="pill">No accounts</span>
+          <span class="pill">No ads</span>
+          <span class="pill">No analytics</span>
+          <span class="pill">Local-only data</span>
+        </div>
+
+        <div class="ctaRow">
+          <!-- Replace # with your Play Store URL once available -->
+          <a class="btn primary" href="#" target="_blank" rel="noopener">
+            Join open testing
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <!-- Keep privacy policy on the same page (Google accepts this) -->
+          <a class="btn ghost" href="#privacy">Privacy policy</a>
+        </div>
+      </div>
+
+      <div class="card side">
+        <h3>At a glance</h3>
+        <div class="kv">
+          <div>
+            <b>What it does</b>
+            Log migraine entries and view simple insights.
+          </div>
+          <div>
+            <b>Reminder</b>
+            Optional daily notification to log your day.
+          </div>
+          <div>
+            <b>Data</b>
+            Stored locally on your device (<code class="inline">no cloud</code>).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sectionTitle">Features</div>
+      <div class="grid">
+        <div class="card feat">
+          <h4>Fast daily logging</h4>
+          <p>Pick a date, set intensity, add notes, and save.</p>
+        </div>
+        <div class="card feat">
+          <h4>Simple factors</h4>
+          <p>Track common triggers like work day, stress, and aura.</p>
+        </div>
+        <div class="card feat">
+          <h4>Insights</h4>
+          <p>See recent patterns and intensity over time (more coming).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional screenshots section: add later -->
+    <!--
+    <div class="section">
+      <div class="sectionTitle">Screenshots</div>
+      <div class="grid">
+        <div class="card"><img src="screenshot1.png" alt="Diary screen" style="width:100%; display:block;"></div>
+        <div class="card"><img src="screenshot2.png" alt="Insights screen" style="width:100%; display:block;"></div>
+        <div class="card"><img src="screenshot3.png" alt="Settings screen" style="width:100%; display:block;"></div>
+      </div>
+    </div>
+    -->
+
+    <div class="section card legal" id="privacy">
+      <div class="sectionTitle">Privacy policy</div>
+      <p>
+        MigraineDiary stores all data locally on your device. The app does not require an account.
+      </p>
+      <p>
+        We do not collect, transmit, sell, or share personal data. There is no advertising, analytics,
+        or tracking.
+      </p>
+      <p>
+        If you enable reminders, Android notification permissions may be requested so the app can show
+        a daily reminder.
+      </p>
+
+      <div class="sectionTitle">Contact</div>
+      <p>
+        Email: <a href="ynot4u2@gmail.com">e-mail me</a>
+      </p>
+
+      <div class="sectionTitle">Disclaimer</div>
+      <p>
+        This app does not provide medical advice. If you have medical concerns, please consult a
+        qualified professional.
+      </p>
+    </div>
+
+    <footer>
+      © <span id="y"></span> MigraineDiary
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
