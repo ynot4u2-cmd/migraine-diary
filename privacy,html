@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy – Migraine Diary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: auto; padding: 24px; line-height: 1.6; }
+    h1, h2 { margin-top: 1.5em; }
+  </style>
+</head>
+<body>
+
+<h1>Privacy Policy – Migraine Diary</h1>
+<p><strong>Last updated:</strong> 2026-01-04</p>
+
+<h2>Overview</h2>
+<p>Migraine Diary is an offline application designed to help users log migraine episodes for personal reference.
+The app does not collect or transmit personal data.</p>
+
+<h2>Data Collection</h2>
+<p>Migraine Diary does not collect, transmit, or share personal data.</p>
+<ul>
+  <li>No user accounts</li>
+  <li>No internet access</li>
+  <li>No analytics or tracking</li>
+  <li>No advertising</li>
+</ul>
+
+<h2>Data Storage</h2>
+<p>All data entered into the app is stored locally on the user’s device only.</p>
+<ul>
+  <li>Data never leaves the device</li>
+  <li>No external backups</li>
+  <li>The developer has no access to user data</li>
+</ul>
+
+<h2>Third-Party Services</h2>
+<p>This app does not use third-party services or SDKs that collect data.</p>
+
+<h2>Medical Disclaimer</h2>
+<p>This app does not provide medical advice. Consult a qualified healthcare professional if needed.</p>
+
+<h2>Children’s Privacy</h2>
+<p>The app is not specifically targeted at children and does not knowingly collect personal information from children.</p>
+
+<h2>Contact</h2>
+<p>Contact the developer via the Google Play listing.</p>
+
+</body>
+</html>
